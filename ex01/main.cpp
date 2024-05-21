@@ -15,9 +15,14 @@ int main()
 
 		// size error부분
 		// sp.addNumber(11);
-		Span	tmp = Span(1000);
+		Span	tmp = Span(10010);
 
-
+		for (int i = 0; i < 10000; i++)
+		{
+			tmp.addNumber(i * 2);
+		}
+		tmp.addNumber(200000);
+	
 		// std::vector<int>::iterator start = sp.getVec().begin();
 		// std::vector<int>::iterator end = sp.getVec().end();
 	
@@ -27,7 +32,12 @@ int main()
 		{
 			std::cout << *it << " ";
 		}
+
 		std::cout << std::endl;
+		std::cout << tmp.shortestSpan() << std::endl;
+		std::cout << tmp.longestSpan() << std::endl;
+		std::cout << std::endl;
+
 	}
 	catch(const std::exception& e)
 	{

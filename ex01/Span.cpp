@@ -84,25 +84,10 @@ int	Span::longestSpan(void)
 		throw (std::length_error("length error"));
 	}
 
-	int	longestNumber = 0;
-	int	biggestNumber = *(this->_vec.begin());
-	int	smallestNumber = *(this->_vec.begin());
+	int	biggestNumber = *(std::max_element(this->_vec.begin(), this->_vec.end()));
+	int	smallestNumber = *(std::min_element(this->_vec.begin(), this->_vec.end()));
 
-	for (std::vector<int>::iterator	it = this->_vec.begin(); it < this->_vec.end(); it++)
-	{
-		if (*it < smallestNumber)
-		{
-			smallestNumber = *it;
-		}
-
-		if (biggestNumber < *it)
-		{
-			biggestNumber = *it;
-		}
-	}
-
-	longestNumber = std::abs(biggestNumber - smallestNumber);
-	return (longestNumber);
+	return (biggestNumber - smallestNumber);
 }
 
 unsigned int		Span::getN(void)
