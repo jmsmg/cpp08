@@ -59,7 +59,7 @@ int	Span::shortestSpan(void)
 	std::vector<int>::iterator i = this->_vec.begin();
 	std::vector<int>::iterator j = i + 1;
 
-	int	shortestNumber = std::abs(*i - *j);
+	int	shortestNumber = std::abs(static_cast<long>(*i - *j));
 
 	while (i < this->_vec.end() - 1)
 	{
@@ -68,7 +68,7 @@ int	Span::shortestSpan(void)
 		{
 			if (std::abs(*i - *j) < shortestNumber)
 			{
-				shortestNumber = std::abs(*i - *j);
+				shortestNumber = std::abs(static_cast<long>(*i - *j));
 			}
 			j++;
 		}
@@ -84,10 +84,25 @@ int	Span::longestSpan(void)
 		throw (std::length_error("length error"));
 	}
 
-	int	biggestNumber = *(std::max_element(this->_vec.begin(), this->_vec.end()));
-	int	smallestNumber = *(std::min_element(this->_vec.begin(), this->_vec.end()));
+	int	longestNumber = 0;
+	int	biggestNumber = *(this->_vec.begin());
+	int	smallestNumber = *(this->_vec.begin());
 
-	return (biggestNumber - smallestNumber);
+	for (std::vector<int>::iterator	it = this->_vec.begin(); it < this->_vec.end(); it++)
+	{
+		if (*it < smallestNumber)
+		{
+			smallestNumber = *it;
+		}
+
+		if (biggestNumber < *it)
+		{
+			biggestNumber = *it;
+		}
+	}
+
+	longestNumber = std::abs(static_cast<long>(biggestNumber - smallestNumber));
+	return (longestNumber);
 }
 
 unsigned int		Span::getN(void)

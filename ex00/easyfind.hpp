@@ -5,9 +5,9 @@
 #include <algorithm>
 
 template <typename T>
-const typename T::iterator	easyfind(const T &container, const int num) throw(std::runtime_error)
+typename T::const_iterator	easyfind(const T &container, const int num) throw(std::runtime_error)
 {
-	typename T::iterator iter;
+	typename T::const_iterator iter;
 
 	iter = std::find(container.begin(), container.end(), num);
 	if (iter == container.end())
