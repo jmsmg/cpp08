@@ -21,8 +21,10 @@ int main()
 	MutantStack<int> a = mstack;
 	MutantStack<int> b(mstack);
 
-	MutantStack<int>::reverse_iterator it = a.rbegin();
-	MutantStack<int>::reverse_iterator ite = a.rend();
+	MutantStack<int>::iterator it = a.begin();
+	MutantStack<int>::iterator ite = a.end();
+	// MutantStack<int>::reverse_iterator it = a.rbegin();
+	// MutantStack<int>::reverse_iterator ite = a.rend();
 
 	++it;
 
