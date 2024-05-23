@@ -21,9 +21,9 @@ class Span
 
 		unsigned int		getN(void);
 		std::vector<int>	&getVec(void);
-		void	addNumber(const unsigned int num);
-		int		shortestSpan(void);
-		int		longestSpan(void);
+		void				addNumber(const unsigned int num);
+		long long			shortestSpan(void);
+		long long			longestSpan(void);
 		template <typename T>
 		void	fillrange(typename T::iterator start, typename T::iterator last)
 		{
